@@ -15,7 +15,7 @@ export function SomePopularProducts() {
             El({
                 element:'div',
                 className:'grid grid-cols-2 gap-3',
-                children:someProducts.map(data => Card({name: data.name, price:data.price, imageURL:data.imageURL}))
+                children:someProducts.map(data => Card({product:data}))
             })
         ]
     })
