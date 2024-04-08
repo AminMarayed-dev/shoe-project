@@ -1,5 +1,7 @@
 import { Button } from "@/components/button/Button";
+import { Text } from "@/components/text/Text";
 import { El } from "@/utils/create-element";
+import { filterCategoriesBtn } from "./filter-categories-button";
 
 export function filterCategories() {
   return El({
@@ -7,32 +9,13 @@ export function filterCategories() {
     children: [
       El({
         element: "div",
-        className:'flex justify-between',
+        className: "flex justify-between items-center mb-4",
         children: [
-          El({
-            element: "p",
-            innerText: "Most Popular",
-          }),
-          El({
-            element: "p",
-            innerText: "See All",
-          }),
+          Text({ text: "Most Popular", className: "font-bold text-[20px]" }),
+          Text({ text: "See All", className: "text-[16px] cursor-pointer" }),
         ],
       }),
-      El({
-        element: "div",
-        className:'flex gap-3 w-full overflow-x-auto',
-        children: [
-          Button({ text: "All",className:'bg-slate-300 text-black border border-black px-3' }),
-          Button({ text: "Nike",className:'bg-slate-300 text-black border border-black px-3' }),
-          Button({ text: "Adidas",className:'bg-slate-300 text-black border border-black px-3' }),
-          Button({ text: "Puma",className:'bg-slate-300 text-black border border-black px-3' }),
-          Button({ text: "Asics",className:'bg-slate-300 text-black border border-black px-3' }),
-          Button({ text: "Reebok",className:'bg-slate-300 text-black border border-black px-3' }),
-          Button({ text: "New Balance",className:'bg-slate-300 text-black border border-black px-3' }),
-          Button({ text: "Converse",className:'bg-slate-300 text-black border border-black px-3' }),
-        ],
-      })
+      filterCategoriesBtn()
     ],
   });
 }
