@@ -6,3 +6,15 @@ export async function getProducts(firstIndex= 0, lastIndex = "") {
     return response.data;
 }
 
+export async function getProductsById(id) {
+    const response = await axios.get(`${baseUrl}/${endPoints.products}/${id}`);
+    return response.data;
+}
+
+export async function getProductsByFilter(filter, value) {
+    const response = await axios.get(`${baseUrl}/${endPoints.products}?${filter}=${value}`);
+    // return response.data;
+    return response.data;
+}
+
+
