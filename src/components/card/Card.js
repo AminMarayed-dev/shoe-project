@@ -2,13 +2,17 @@ import { El } from "@/utils/create-element";
 import { Icon } from "../icon/Icon";
 import { Text } from "../text/Text";
 import { Image } from "../image/Image";
+import { router } from "@/routes/routes";
+import { getProductsById } from "@/api/Products";
+import { Link } from "../link/Link";
 
-export function Card({ name, price, imageURL, ...rest }) {
-  return El({
-    element: "div",
+export function Card({ product , className, ...rest}) {
+  const { id, name, price, imageURL } = product;
+  return Link({
+    href:`/products/${id}`,
     className: "flex flex-col",
     children: [
-      Image({ src: imageURL, className: "rounded-xl" }),
+      Image({ src: imageURL, className: "rounded-xl cursor-pointer"}),
       Text({
         text: name.length < 20 ? name : name.substring(0, 20) + "...",
         className: "font-bold",
