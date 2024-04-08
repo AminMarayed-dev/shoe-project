@@ -32,11 +32,6 @@ export function filterCategories() {
           Button({ text: "New Balance",className:'bg-slate-300 text-black border border-black px-3' }),
           Button({ text: "Converse",className:'bg-slate-300 text-black border border-black px-3' }),
         ],
-      }),
-      El({
-        element:'div',
-        className:'grid grid-cols-2 gap-2',
-        children:[]
       })
     ],
   });
