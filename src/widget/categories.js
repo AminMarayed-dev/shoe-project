@@ -1,42 +1,109 @@
+import { getProducts, getProductsByFilter } from "@/api/Products";
 import { Link } from "@/components/link/Link";
 import { Logo } from "@/components/logo/Logo";
+import { router } from "@/routes/routes";
 import { El } from "@/utils/create-element";
 
-export function CategoriesLogo({ product, className, ...rest }) {
-  const { id, name, price, imageURL, brand } = product;
+export function CategoriesLogo() {
+  // const {brand} = {...new Set(filterProduct)};
+  // console.log(brand);
   return El({
     element: "div",
     className: "grid grid-cols-4 gap-4 w-full",
     children: [
       Link({
-        href: `/brand/${brand}`,
+        href: `/brand/NIKE`,
+        className: "text-center",
         children: [
           Logo({
-            src: "./src/assets/images/nike.png",
+            logoClass: "icon-[simple-icons--nike]",
           }),
         ],
       }),
-      Logo({
-        src: "./src/assets/images/addidas.png",
+      Link({
+        href: `/brand/ADIDAS`,
+        className: "text-center",
+        children: [
+          Logo({
+            logoClass: "icon-[gg--adidas]",
+          }),
+        ],
       }),
-      Logo({
-        src: "./src/assets/images/puma.png",
+      Link({
+        href: `/brand/PUMA`,
+        className: "text-center",
+        children: [
+          Logo({
+            logoClass: "icon-[simple-icons--puma]",
+          }),
+        ],
       }),
-      Logo({
-        src: "./src/assets/images/Asics.png",
+      Link({
+        href: `/brand/ASICS`,
+        className: "text-center",
+        children: [
+          Logo({
+            logoClass: "icon-[simple-icons--nike]",
+          }),
+        ],
       }),
-      Logo({
-        src: "./src/assets/images/Reebok.png",
+      Link({
+        href: `/brand/REEBOK`,
+        className: "text-center",
+        children: [
+          Logo({
+            logoClass: "icon-[simple-icons--reebok]",
+          }),
+        ],
       }),
-      Logo({
-        src: "./src/assets/images/New Balance.png",
+      Link({
+        href: `/brand/NEW BALANCE`,
+        className: "text-center",
+        children: [
+          Logo({
+            logoClass: "icon-[simple-icons--newbalance]",
+          }),
+        ],
       }),
-      Logo({
-        src: "./src/assets/images/Converse.png",
+      Link({
+        href: `/brand/CONVERSE`,
+        className: "text-center",
+        children: [
+          Logo({
+            logoClass: "icon-[simple-icons--nike]",
+          }),
+        ],
       }),
-      Logo({
-        src: "./src/assets/images/More.png",
+      Link({
+        href: `/brand/OTHER`,
+        className: "text-center",
+        children: [
+          Logo({
+            logoClass: "icon-[mdi--more-circle-outline]",
+          }),
+        ],
       }),
+      // Logo({
+      //   src: "./src/assets/images/addidas.png",
+      // }),
+      // Logo({
+      //   src: "./src/assets/images/puma.png",
+      // }),
+      // Logo({
+      //   src: "./src/assets/images/Asics.png",
+      // }),
+      // Logo({
+      //   src: "./src/assets/images/Reebok.png",
+      // }),
+      // Logo({
+      //   src: "./src/assets/images/New Balance.png",
+      // }),
+      // Logo({
+      //   src: "./src/assets/images/Converse.png",
+      // }),
+      // Logo({
+      //   src: "./src/assets/images/More.png",
+      // }),
     ],
   });
 }

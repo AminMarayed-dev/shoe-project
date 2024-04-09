@@ -14,7 +14,7 @@ export function Card({ product , className, ...rest}) {
     children: [
       Image({ src: imageURL, className: "rounded-xl cursor-pointer"}),
       Text({
-        text: name.length < 20 ? name : name.substring(0, 20) + "...",
+        text: name.length < 15 ? name : name.substring(0, 15) + "...",
         className: "font-bold",
       }),
       Text({ text: `$ ${price}` }),

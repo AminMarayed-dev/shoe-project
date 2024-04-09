@@ -4,39 +4,39 @@ import { El } from "@/utils/create-element";
 export function filterCategoriesBtn() {
     return El({
         element: "div",
-        className: "flex overflow-x-auto overflow-y-none w-full gap-3  mb-4",
+        className: "flex scrollbar overflow-x-auto active:scrollbar-thumb-gray-300 scrollbar-thumb-rounded-full scrollbar-h-1 w-full gap-3  mb-4",
         children: [
           Button({
             text: "All",
-            className: "text-gray-600 border-2 border-black px-3 py-1 rounded-xl text-[14px] ",
+            className: "text-[#343A40] border-2 border-black px-3 py-1 rounded-xl text-[14px]  mb-2 hover:bg-[#343A40] hover:text-white hover:border-none",
           }),
           Button({
             text: "Nike",
-            className: "text-gray-600 border-2 border-black px-3 py-1 rounded-xl text-[14px]",
+            className: "text-[#343A40] border-2 border-black px-3 py-1 rounded-xl text-[14px] mb-2 hover:bg-[#343A40] hover:text-white hover:border-none",
           }),
           Button({
             text: "Adidas",
-            className: "text-gray-600 border-2 border-black px-3 py-1 rounded-xl text-[14px]",
+            className: "text-[#343A40] border-2 border-black px-3 py-1 rounded-xl text-[14px] mb-2 hover:bg-[#343A40] hover:text-white hover:border-none",
           }),
           Button({
             text: "Puma",
-            className: "text-gray-600 border-2 border-black px-3 py-1 rounded-xl text-[14px]",
+            className: "text-[#343A40] border-2 border-black px-3 py-1 rounded-xl text-[14px] mb-2 hover:bg-[#343A40] hover:text-white hover:border-none",
           }),
           Button({
             text: "Asics",
-            className: "text-gray-600 border-2 border-black px-3 py-1 rounded-xl text-[14px]",
+            className: "text-[#343A40] border-2 border-black px-3 py-1 rounded-xl text-[14px] mb-2 hover:bg-[#343A40] hover:text-white hover:border-none",
           }),
           Button({
             text: "Reebok",
-            className: "text-gray-600 border-2 border-black px-3 py-1 rounded-xl text-[14px]",
+            className: "text-[#343A40] border-2 border-black px-3 py-1 rounded-xl text-[14px] mb-2 hover:bg-[#343A40] hover:text-white hover:border-none",
           }),
           Button({
             text: "New Balance",
-            className: "text-gray-600 border-2 border-black px-3 py-1 rounded-xl text-[14px]",
+            className: "text-[#343A40] border-2 border-black px-3 py-1 rounded-xl text-[14px] mb-2 hover:bg-[#343A40] hover:text-white hover:border-none",
           }),
           Button({
             text: "Converse",
-            className: "text-gray-600 border-2 border-black px-3 py-1 rounded-xl text-[14px]",
+            className: "text-[#343A40] border-2 border-black px-3 py-1 rounded-xl text-[14px] mb-2 hover:bg-[#343A40] hover:text-white hover:border-none",
           }),
         ],
       })
