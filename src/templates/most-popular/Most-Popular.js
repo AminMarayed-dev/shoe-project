@@ -1,15 +1,21 @@
 import { getProducts } from "@/api/Products";
+import { BackPage } from "@/components/backpage/BackPage";
 import { Card } from "@/components/card/Card";
+import { CartProducts } from "@/components/cart-products/Cart-Products";
 import { El } from "@/utils/create-element";
-
-
-
+import { filterCategoriesBtn } from "@/widget/filter-categories-button";
 
 const allProducts = await getProducts();
 export function MostPopularPage() {
-    return El({
-        element:'div',
-        className:'grid grid-cols-2 gap-5 px-5',
-        children:allProducts.map(product => Card({product:product}))
-    })
+  
+  const element =  El({
+    element: "div",
+    className: "px-5 flex flex-col gap-3",
+    children: [
+      BackPage({ title: "Most Popular" }),
+      filterCategoriesBtn(),
+      CartProducts({ products: allProducts }),
+    ],
+  });
+  return element;
 }
