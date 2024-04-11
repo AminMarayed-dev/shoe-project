@@ -1,9 +1,10 @@
 import { El } from "@/utils/create-element";
 
-export function Icon({className = "", otherClass = ""}) {
+export function Icon({className = "", otherClass = "", ...rest}) {
     return El({
         element:'span',
-        className:`${className} ${otherClass}`
+        className:`${className} ${otherClass}`,
+        ...rest
     })
 }
 

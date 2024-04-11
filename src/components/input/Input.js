@@ -4,7 +4,7 @@ export function Input({type, placeholder= "", className= "", ...rest}) {
     return El({
         element:'input',
         type,
-        className:`p-3 ${className}`,
+        className:`outline-none ${className}`,
         placeholder,
         ...rest
     })
