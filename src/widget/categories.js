@@ -1,4 +1,4 @@
-import { getProducts, getProductsByFilter } from "@/api/Products";
+import { getProducts } from "@/api/Products";
 import { Link } from "@/components/link/Link";
 import { Logo } from "@/components/logo/Logo";
 import { router } from "@/routes/routes";
