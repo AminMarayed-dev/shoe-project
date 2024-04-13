@@ -13,6 +13,7 @@ export default {
   },
   plugins: [
     addDynamicIconSelectors(),
+    require('tailwind-scrollbar')({ nocompatible: true }),
   ],
 }
 
