@@ -4,7 +4,7 @@ export function Button({ text, className = "", ...rest }) {
   return El({
     element: "button",
     innerText: text,
-    className:`whitespace-nowrap ${className}`,
+    className:`whitespace-nowrap cursor-pointer ${className}`,
     ...rest,
   });
 }
