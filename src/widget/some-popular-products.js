@@ -12,7 +12,7 @@ export function SomePopularProducts() {
         element:'div',
         className:'p-2',
         children:[
-            filterCategories(),
+            filterCategories({parentId:'some-products', child:someProducts}),
             // El({
             //     element:'div',
             //     className:'grid grid-cols-2 gap-3 mb-3',
