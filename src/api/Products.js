@@ -1,7 +1,7 @@
 import axios from "axios";
 import { baseUrl, endPoints } from "./config";
 
-export async function getProducts(limit = 8, start = 0) {
+export async function getProducts(limit, start = 0) {
   const response = await axios.get(
     `${baseUrl}/${endPoints.products}?_limit=${limit}&_start=${start}`
   );
