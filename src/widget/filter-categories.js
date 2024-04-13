@@ -3,8 +3,11 @@ import { Text } from "@/components/text/Text";
 import { El } from "@/utils/create-element";
 import { filterCategoriesBtn } from "./filter-categories-button";
 import { router } from "@/routes/routes";
+import { getProducts } from "@/api/Products";
 
-export function filterCategories() {
+
+
+export function filterCategories({parentId, child, create}) {
   return El({
     element: "div",
     children: [
@@ -21,7 +24,7 @@ export function filterCategories() {
           }] }),
         ],
       }),
-      filterCategoriesBtn()
+      filterCategoriesBtn({parentId:parentId, child:child, create:create})
     ],
   });
 }

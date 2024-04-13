@@ -2,12 +2,13 @@ import { getProducts } from "@/api/Products";
 import { Button } from "@/components/button/Button";
 import { Card } from "@/components/card/Card";
 import { CartProducts } from "@/components/cart-products/Cart-Products";
+import { WishList } from "@/components/wishlist-cart/WishList-Cart";
 import { El } from "@/utils/create-element";
 
 let filterValue = "all";
-let someProducts = await getProducts();
+// let someProducts = await getProducts(8, 0);
 
-export function filterCategoriesBtn() {
+export function filterCategoriesBtn({parentId, child}) {
   return El({
     element: "div",
     className:
@@ -23,12 +24,19 @@ export function filterCategoriesBtn() {
             callback: async (e) => {
               
               // filterValue = "NIKE";
-              const parent = e.target.parentElement.parentElement.nextElementSibling;
+              const parent = document.getElementById(parentId);
               parent.innerHTML = "";
-              const newChildren = someProducts;
-              parent.append(
-                ...newChildren.map((newChild) => Card({ product: newChild }))
-              );
+              const newChildren = child;
+              
+              if(parent.id == 'some-products') {
+                parent.append(
+                  ...newChildren.map((newChild) => Card({ product: newChild }))
+                );
+              }else {
+                parent.append(
+                  ...newChildren.map((newChild) => WishList({ cart: newChild }))
+                );
+              }
             },
           },
         ],
@@ -43,13 +51,19 @@ export function filterCategoriesBtn() {
             event: "click",
             callback: async (e) => {
               filterValue = "NIKE";
-              const parent = e.target.parentElement.parentElement.nextElementSibling;
+              const parent = document.getElementById(parentId);
               parent.innerHTML = "";
               // const newChildren = await getProducts(8, 0, "brand", filterValue);
-              const newChildren = someProducts.filter(product => product.brand == filterValue);
-              parent.append(
-                ...newChildren.map((newChild) => Card({ product: newChild }))
-              );
+              const newChildren = child.filter(product => product.brand == filterValue);
+              if(parent.id == 'some-products') {
+                parent.append(
+                  ...newChildren.map((newChild) => Card({ product: newChild }))
+                );
+              }else {
+                parent.append(
+                  ...newChildren.map((newChild) => WishList({ cart: newChild }))
+                );
+              }
             },
           },
         ],
@@ -63,12 +77,18 @@ export function filterCategoriesBtn() {
             event: "click",
             callback: async (e) => {
               filterValue = "ADIDAS";
-              const parent = e.target.parentElement.parentElement.nextElementSibling;
+              const parent = document.getElementById(parentId);
               parent.innerHTML = "";
-              const newChildren = someProducts.filter(product => product.brand == filterValue);
-              parent.append(
-                ...newChildren.map((newChild) => Card({ product: newChild }))
-              );
+              const newChildren = child.filter(product => product.brand == filterValue);
+              if(parent.id == 'some-products') {
+                parent.append(
+                  ...newChildren.map((newChild) => Card({ product: newChild }))
+                );
+              }else {
+                parent.append(
+                  ...newChildren.map((newChild) => WishList({ cart: newChild }))
+                );
+              }
             },
           },
         ],
@@ -82,13 +102,19 @@ export function filterCategoriesBtn() {
             event: "click",
             callback: async (e) => {
               filterValue = "PUMA";
-              const parent = e.target.parentElement.parentElement.nextElementSibling;
+              const parent = document.getElementById(parentId);
               parent.innerHTML = "";
-              const newChildren = someProducts.filter(product => product.brand == filterValue);
+              const newChildren = child.filter(product => product.brand == filterValue);
               
-              parent.append(
-                ...newChildren.map((newChild) => Card({ product: newChild }))
-              );
+              if(parent.id == 'some-products') {
+                parent.append(
+                  ...newChildren.map((newChild) => Card({ product: newChild }))
+                );
+              }else {
+                parent.append(
+                  ...newChildren.map((newChild) => WishList({ cart: newChild }))
+                );
+              }
             },
           },
         ],
@@ -102,9 +128,9 @@ export function filterCategoriesBtn() {
               event: "click",
               callback: async (e) => {
                 filterValue = "ASICS";
-                const parent = e.target.parentElement.parentElement.nextElementSibling;
+                const parent = document.getElementById(parentId);
                 parent.innerHTML = "";
-                const newChildren = someProducts.filter(product => product.brand == filterValue);
+                const newChildren = child.filter(product => product.brand == filterValue);
                 
                 parent.append(
                   ...newChildren.map((newChild) => Card({ product: newChild }))
@@ -122,9 +148,9 @@ export function filterCategoriesBtn() {
               event: "click",
               callback: async (e) => {
                 filterValue = "REEBOK";
-                const parent = e.target.parentElement.parentElement.nextElementSibling;
+                const parent = document.getElementById(parentId);
                 parent.innerHTML = "";
-                const newChildren = someProducts.filter(product => product.brand == filterValue);
+                const newChildren = child.filter(product => product.brand == filterValue);
                 
                 parent.append(
                   ...newChildren.map((newChild) => Card({ product: newChild }))
@@ -142,9 +168,9 @@ export function filterCategoriesBtn() {
               event: "click",
               callback: async (e) => {
                 filterValue = "NEW BALANCE";
-                const parent = e.target.parentElement.parentElement.nextElementSibling;
+                const parent = document.getElementById(parentId);
                 parent.innerHTML = "";
-                const newChildren = someProducts.filter(product => product.brand == filterValue);
+                const newChildren = child.filter(product => product.brand == filterValue);
                 
                 parent.append(
                   ...newChildren.map((newChild) => Card({ product: newChild }))
@@ -162,9 +188,9 @@ export function filterCategoriesBtn() {
               event: "click",
               callback: async (e) => {
                 filterValue = "CONVERSE";
-                const parent = e.target.parentElement.parentElement.nextElementSibling;
+                const parent = document.getElementById(parentId);
                 parent.innerHTML = "";
-                const newChildren = someProducts.filter(product => product.brand == filterValue);
+                const newChildren = child.filter(product => product.brand == filterValue);
                 
                 parent.append(
                   ...newChildren.map((newChild) => Card({ product: newChild }))
