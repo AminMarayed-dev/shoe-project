@@ -27,7 +27,7 @@ export function WishList({cart}) {
             ]
           }),
           Text({ text: `$ ${price}` }),
-          Icon({className:'icon-[f7--heart-circle-fill]', otherClass:'bg-black absolute top-0'})
+          Icon({className:'icon-[f7--heart-circle-fill]', otherClass:'bg-black absolute top-6 right-3 text-3xl'})
         ],
       });
 }

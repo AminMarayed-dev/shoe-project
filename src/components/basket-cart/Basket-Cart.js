@@ -3,10 +3,9 @@ import { Link } from "../link/Link";
 import { Image } from "../image/Image";
 import { Text } from "../text/Text";
 import { Icon } from "../icon/Icon";
-import { deleteCart, getCart, getCartById, updateCart } from "@/api/Cart";
-import { BasketCartItems } from "@/widget/basket-cart-items";
 import { Modal } from "../modal-delete/Modal";
 import { BackDrop } from "../backdrop/BackDrop";
+import { getUsers, updateUsers } from "@/api/Users";
 
 export function BasketCart({ cart, className, ...rest }) {
   const { id, name, price, imageURL, size, color, productId, quantity } = cart;
@@ -37,7 +36,7 @@ export function BasketCart({ cart, className, ...rest }) {
           El({
             element: "div",
             className:
-              "flex items-center gap-2 absolute bottom-[35px] right-[20px]",
+              "flex items-center gap-2 absolute bottom-[35px] right-[20px] bg-gray-100 px-3 py-1 rounded-2xl",
             children: [
               Icon({
                 className: "icon-[ic--baseline-minus]",
@@ -49,21 +48,31 @@ export function BasketCart({ cart, className, ...rest }) {
                       if (cart.quantity < 2) return;
                       cart.quantity--;
 
-                      await updateCart(cart.id, cart);
-                      const { quantity, price } = await getCartById(cart.id);
+                      let allCart = await getUsers().then((response) => {
+                        return response[0].cart;
+                      });
+                      console.log(cart.id);
+                      const index = allCart.findIndex(
+                        (item) => item.id == cart.id
+                      );
+
+                      allCart[index].quantity = cart.quantity;
+                      updateUsers(1, { cart: allCart });
+
+                      const { quantity, price } = cart;
 
                       const parentQuantity = e.target.nextElementSibling;
                       const parentPrice =
                         e.target.parentElement.previousElementSibling;
                       parentQuantity.innerHTML = quantity;
                       parentPrice.innerHTML = `$${price * quantity}`;
-                      
 
-                      const allCart = await getCart();
                       const totalPrice = allCart
-                      .map((cart) => cart.price * cart.quantity)
-                      .reduce((acc, curr) => acc + curr, 0);
-                      document.getElementById('total-price').innerHTML = `$${totalPrice}`;
+                        .map((cart) => cart.price * cart.quantity)
+                        .reduce((acc, curr) => acc + curr, 0);
+                      document.getElementById(
+                        "total-price"
+                      ).innerHTML = `$${totalPrice}`;
                     },
                   },
                 ],
@@ -77,8 +86,17 @@ export function BasketCart({ cart, className, ...rest }) {
                     event: "click",
                     callback: async (e) => {
                       cart.quantity++;
-                      await updateCart(cart.id, cart);
-                      const { quantity } = await getCartById(cart.id);
+                      let allCart = await getUsers().then((response) => {
+                        return response[0].cart;
+                      });
+                      console.log(cart.id);
+                      const index = allCart.findIndex(
+                        (item) => item.id == cart.id
+                      );
+
+                      allCart[index].quantity = cart.quantity;
+                      updateUsers(1, { cart: allCart });
+                      const { quantity } = cart;
 
                       const parentQuantity = e.target.previousElementSibling;
                       const parentPrice =
@@ -86,12 +104,12 @@ export function BasketCart({ cart, className, ...rest }) {
                       parentQuantity.innerHTML = quantity;
                       parentPrice.innerHTML = `$${price * quantity}`;
 
-                      
-                      const allCart = await getCart();
                       const totalPrice = allCart
-                      .map((cart) => cart.price * cart.quantity)
-                      .reduce((acc, curr) => acc + curr, 0);
-                      document.getElementById('total-price').innerHTML = `$${totalPrice}`;
+                        .map((cart) => cart.price * cart.quantity)
+                        .reduce((acc, curr) => acc + curr, 0);
+                      document.getElementById(
+                        "total-price"
+                      ).innerHTML = `$${totalPrice}`;
                     },
                   },
                 ],
@@ -102,15 +120,17 @@ export function BasketCart({ cart, className, ...rest }) {
             className: "icon-[solar--trash-bin-2-outline]",
             otherClass:
               "absolute top-[24px] right-[18px] text-2xl cursor-pointer",
-            id:'trash',
+            id: "trash",
             eventListener: [
               {
                 event: "click",
-                callback: async (e) => {
-                  const selectedCart = await getCartById(cart.id);
-                  document.getElementById('cart-container').append(Modal({cart:selectedCart, cartId:selectedCart.id}),BackDrop());
-                  document.getElementById(selectedCart.id).querySelector('#trash').classList.add('hidden');
-                  
+                callback: async () => {
+                  document
+                    .getElementById("cart-container")
+                    .append(Modal({ cart: cart, cartId: cart.id }), BackDrop());
+
+                  // remove trash icon from modal
+                  document.getElementById(cart.id).querySelector("#trash").classList.add('hidden');
                 },
               },
             ],

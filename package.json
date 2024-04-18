@@ -26,13 +26,20 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
+    "@iconify-json/ant-design": "^1.1.16",
     "@iconify-json/f7": "^1.1.0",
     "@iconify-json/fluent": "^1.1.52",
     "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/iconamoon": "^1.1.4",
+    "@iconify-json/mingcute": "^1.1.17",
     "@iconify-json/mynaui": "^1.1.7",
+    "@iconify-json/ri": "^1.1.20",
     "@iconify-json/solar": "^1.1.9",
+    "@iconify-json/typcn": "^1.1.9",
     "axios": "^1.6.8",
+    "js-cookie": "^3.0.5",
     "navigo": "^8.11.1",
+    "swiper": "^11.1.1",
     "vite-jsconfig-paths": "^2.0.1"
   }
 }

@@ -1,18 +1,23 @@
 import { Icon } from "@/components/icon/Icon";
+import { Image } from "@/components/image/Image";
 import { router } from "@/routes/routes";
 import { El } from "@/utils/create-element";
 
 export function Header() {
   return El({
     element: "div",
-    className: "flex justify-between items-center px-4 py-1",
+    className: "flex justify-between items-center  py-3",
     children: [
       El({
         element: "span",
         className: "flex",
         children: [
           El({
-            element: "img",
+            element:'span',
+            className:'w-[50px] h-[50px]',
+            children:[
+              Image({src:'../../../src/assets/images/profile.jpg',className:'w-full h-full'}),
+            ]
           }),
           El({
             element: "span",
@@ -38,11 +43,11 @@ export function Header() {
         children: [
           Icon({
             className: "icon-[mdi--notifications-none]",
-            otherClass: "text-xl cursor-pointer",
+            otherClass: "text-2xl cursor-pointer",
           }),
           Icon({
             className: "icon-[mdi--cards-heart-outline]",
-            otherClass: "text-xl cursor-pointer",
+            otherClass: "text-2xl cursor-pointer",
             eventListener: [
               {
                 event: "click",

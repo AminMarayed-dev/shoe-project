@@ -6,6 +6,6 @@ export async function postWishList(wishlist) {
 }
 
 export async function getWishList() {
-    const response = await axios.get(`${baseUrl}/${endPoints.wishlist}`);
-    return response.data;
+    const response = await axios.get(`${baseUrl}/${endPoints.users}`);
+    return response.data[0].wishlist;
 }

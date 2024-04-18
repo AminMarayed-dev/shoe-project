@@ -1,6 +1,5 @@
 import Navigo from "navigo";
 import { changePage } from "@/utils/change-page";
-import { Slides } from "@/pages/onboarding/slides/Slides";
 import { Home } from "@/pages/home/Home";
 import { Orders } from "@/pages/orders/Orders";
 import { Cart } from "@/pages/cart/Cart";
@@ -16,12 +15,19 @@ import {
 } from "@/api/Products";
 import { SingleProduct } from "@/pages/single-product/Single_Product";
 import { Brand } from "@/pages/brand/Brand";
+import { OnBoarding } from "@/pages/onboarding/OnBoarding";
+import { ShoppingAdress } from "@/pages/shopping-address/Shopping-Address";
+import { ChooseShopping } from "@/pages/choose-shopping.js/Choose-Shopping";
+import { Payment } from "@/pages/payment/Payment";
 
 export const router = new Navigo("/");
 
 router
   .on("/", () => {
-    changePage(Home());
+    changePage(OnBoarding());
+  })
+  .on("/login", () => {
+    changePage(Login());
   })
   .on("/home", () => {
     changePage(Home());
@@ -38,26 +44,28 @@ router
   .on("/checkout", () => {
     changePage(CheckOut());
   })
-  .on("/login", () => {
-    changePage(Login());
-  })
   .on("/most-popular", () => {
     changePage(MostPopular());
   })
   .on("/wishlist", () => {
     changePage(WishList());
   })
+  .on("/shopping-address", () => {
+    changePage(ShoppingAdress());
+  })
+  .on("/choose-shopping", () => {
+    changePage(ChooseShopping());
+  })
+  .on('/payment', () => {
+    changePage(Payment());
+  })
   .on("/products/:id", ({ data }) => {
-    // console.log(data);
     getProductsById(data.id).then((response) => {
-      // console.log(response);
       changePage(SingleProduct(response));
     });
   })
   .on("/brand/:brand", ({ data }) => {
-    // console.log(data);
     getProductsByFilter("brand", data.brand.toUpperCase()).then((response) => {
-      // console.log(response);
       changePage(Brand(response));
     });
   });

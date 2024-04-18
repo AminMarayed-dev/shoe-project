@@ -18,3 +18,8 @@ export async function getProductsByFilter(filter, value) {
     // return response.data;
     return response.data;
 }
+
+export async function getProductsBySearch(name) {
+  const response = await axios.get(`${baseUrl}/${endPoints.products}?name_like=${name}`);
+  return response.data;
+}

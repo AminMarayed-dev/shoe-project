@@ -43,7 +43,8 @@ export function CategoriesLogo() {
         className: "text-center",
         children: [
           Logo({
-            logoClass: "icon-[simple-icons--nike]",
+            logoClass: "icon-[arcticons--sanskrit-basics]",
+            
           }),
         ],
       }),
@@ -83,27 +84,6 @@ export function CategoriesLogo() {
           }),
         ],
       }),
-      // Logo({
-      //   src: "./src/assets/images/addidas.png",
-      // }),
-      // Logo({
-      //   src: "./src/assets/images/puma.png",
-      // }),
-      // Logo({
-      //   src: "./src/assets/images/Asics.png",
-      // }),
-      // Logo({
-      //   src: "./src/assets/images/Reebok.png",
-      // }),
-      // Logo({
-      //   src: "./src/assets/images/New Balance.png",
-      // }),
-      // Logo({
-      //   src: "./src/assets/images/Converse.png",
-      // }),
-      // Logo({
-      //   src: "./src/assets/images/More.png",
-      // }),
     ],
   });
 }

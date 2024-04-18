@@ -2,7 +2,7 @@
 import { El } from "@/utils/create-element";
 import { Icon } from "../icon/Icon";
 import { Text } from "../text/Text";
-import { router } from "@/routes/routes";
+
 
 export function BackPage({title}) {
     return El({
@@ -12,7 +12,7 @@ export function BackPage({title}) {
             Icon({className:'icon-[uil--arrow-left] text-[32px] cursor-pointer', eventListener:[{
                 event:'click',
                 callback: () => {
-                    router.navigate('/');
+                    history.back();
                 }
             }]}),
             Text({text: title, className:'font-bold'})

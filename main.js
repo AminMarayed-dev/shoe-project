@@ -1,6 +1,10 @@
 import "./style.css";
 
+import { getUsers, updateUsers } from "./src/api/Users";
 import { router } from "./src/routes/routes";
-import {getPersonData} from './src/api/Login'
+
+
 
 router.resolve();
+
+
