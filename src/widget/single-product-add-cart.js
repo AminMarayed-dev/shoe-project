@@ -60,7 +60,7 @@ export function SingleProductAddToCart(product) {
                     Circle({
                       content: p,
                       value: p,
-                      background:` mr-3 px-4 py-1.5`,
+                      background:`px-2 py-1.5`,
                       eventListener: [
                         {
                           event: "click",
