@@ -58,9 +58,9 @@ export function SingleProductAddToCart(product) {
                   Text({ text: "Color", className: "font-bold mb-2" }),
                   ...product.colors.map((p) =>
                     Circle({
-                      content: "",
+                      content: p,
                       value: p,
-                      background:`bg-${p} mr-3 px-4 py-1.5`,
+                      background:` mr-3 px-4 py-1.5`,
                       eventListener: [
                         {
                           event: "click",
