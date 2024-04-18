@@ -4,6 +4,7 @@ import { El } from "@/utils/create-element";
 export function SingleProductDescription() {
     return El({
         element:'div',
+        className:'flex flex-col gap-2 mt-2 mb-2 pt-2 border-t-2',
         children:[
             Text({text:'Description', className:'font-bold'}),
             Text({text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem reiciendis, quia corporis nulla amet labore eius molestias quam inventore quidem.'})
